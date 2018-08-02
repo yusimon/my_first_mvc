@@ -1,0 +1,26 @@
+﻿@model AuthWithDB.Models.NewUser
+@{
+    ViewBag.Title = "Create New User";
+    var username = User.Identity.Name;
+}
+
+<h2>Create New User</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-sm-2"><label>@Html.LabelFor(u => u.LastName)</label></div>
+        <div class="col-sm-2">@Html.TextBoxFor(u => u.LastName)</div>
+        <div class="col-sm-2"><label>@Html.LabelFor(u => u.FirstName)</label></div>
+        <div class="col-sm-2">@Html.TextBoxFor(u => u.FirstName)</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2"><label>@Html.LabelFor(u => u.Email)</label></div>
+        <div class="col-sm-2">@Html.TextBoxFor(u => u.Email)</div>
+        <div class="col-sm-2"><label>@Html.LabelFor(u => u.Password)</label></div>
+        <div class="col-sm-2">@Html.TextBoxFor(u => u.Password)</div>
+    </div>
+
+    <input type="submit" value="Create" />
+}
+

@@ -1,0 +1,49 @@
+﻿@model AuthWithDB.Models.Users
+@{
+    ViewBag.Title = "User Registration";
+}
+
+<h2>Registration</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(u => u.Email)
+        </div>
+        <div class="col-sm-2">
+            @Html.TextBoxFor(u => u.Email)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(u => u.Password)
+        </div>
+        <div class="col-sm-2">
+            @Html.PasswordFor(u => u.Password)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(u => u.Name)
+        </div>
+        <div class="col-sm-2">
+            @Html.TextBoxFor(u => u.Name)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(u => u.Country)
+        </div>
+        <div class="col-sm-2">
+            @Html.TextBoxFor(u => u.Country)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="submit">Register</button>
+        </div>
+    </div>
+}
+
+

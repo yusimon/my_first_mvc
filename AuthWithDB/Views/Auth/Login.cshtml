@@ -1,0 +1,46 @@
+﻿@model AuthWithDB.Models.Users
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm())
+{
+    @*<div class="row" style="margin-bottom: 1em">
+        <div class="col-sm-2"><label>Email</label></div>
+        <div class="col-sm-2">@Html.EditorFor(m => m.Email)</div>
+    </div>
+    <div class="row" style="margin-bottom: 1em">
+        <div class="col-sm-2"><label>Password</label></div>
+        <div class="col-sm-2">@Html.EditorFor(m => m.Password)</div>
+    </div>*@
+    @*@Html.EditorForModel()*@
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(u => u.Email)
+        </div>
+        <div class="col-sm-2">
+            @Html.TextBoxFor(u => u.Email, new { id = "emailTextBox"})
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.LabelFor(u => u.Password)
+        </div>
+        <div class="col-sm-2">
+            @Html.PasswordFor(u => u.Password)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="submit">Login</button>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    document.getElementById("emailTextBox").focus();
+</script>

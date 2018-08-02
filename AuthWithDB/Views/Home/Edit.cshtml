@@ -1,0 +1,62 @@
+﻿@model AuthWithDB.Models.Lists
+@{
+    ViewBag.Title = "Edit";
+    var username = User.Identity.Name;
+}
+
+<h2>Edit the list item</h2>
+
+<a href="@Url.Action("Index","Home")">Go back to list view</a>
+
+@using (Html.BeginForm())
+{
+    @*<span>Enter a new item</span>
+    <input type="text" name="new_item" /><br />
+    <span>Public? Post<input type="checkbox" name="check_public" /></span><br />
+    <input type="submit" value="Add Item" />
+
+    <br />*@
+
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Id</th>
+                <th style="text-align: center;">Details</th>
+                <th style="text-align: center;">Time - Date Posted</th>
+                <th style="text-align: center;">Time - Date Edited</th>
+                <th style="text-align: center;">Public</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Id)</td>
+                <td style="text-align: center;">@Html.EditorFor(modelItem => Model.Details)</td>
+                <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Time_Posted)</td>
+                <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Date_Posted)</td>
+                <td style="text-align: center;">@Html.EditorFor(modelItem => Model.Public)</td>
+            </tr>
+        </tbody>
+    </table><br />
+    <input type="submit" value="Save" />
+}
+
+@*<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th style="text-align: center;">Id</th>
+            <th style="text-align: center;">Details</th>
+            <th style="text-align: center;">Time - Date Posted</th>
+            <th style="text-align: center;">Time - Date Edited</th>
+            <th style="text-align: center;">Public</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Id)</td>
+            <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Details)</td>
+            <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Time_Posted)</td>
+            <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Date_Posted)</td>
+            <td style="text-align: center;">@Html.DisplayFor(modelItem => Model.Public)</td>
+        </tr>
+    </tbody>
+</table>*@

@@ -1,0 +1,29 @@
+﻿@model AuthWithDB.Models.Student
+@{
+    ViewBag.Title = "Delete the student";
+}
+
+<h2>Delete the student</h2>
+
+<div class="row">
+    <div class="col-sm-2"><label>Last Name</label></div>
+    <div class="col-sm-2">@Html.DisplayFor(s => s.LastName)</div>
+    <div class="col-sm-2"><label>First Name</label></div>
+    <div class="col-sm-2">@Html.DisplayFor(s => s.FirstMidName)</div>
+</div>
+<div class="row">
+    <div class="col-sm-2"><label>Enrollment Date</label></div>
+    <div class="col-sm-2">@Html.DisplayFor(s => s.EnrollmentDate)</div>
+    <div class="col-sm-2"><label>Image</label></div>
+    <div class="col-sm-2"><img src="/Student/RetrieveImage/@Html.DisplayFor(s => s.ID)" width="150" height="100" /></div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-sm-2">
+            <input type="submit" value="Delete" class="btn btn-default" /><br />
+            @Html.ActionLink("Back to list", "StudentIndex")
+        </div>
+    </div>
+}

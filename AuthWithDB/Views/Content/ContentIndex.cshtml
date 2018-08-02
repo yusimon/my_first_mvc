@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AuthWithDB.ViewModel.ContentViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<br />
+<table class="table" style="width: 1200px;">
+    <tr>
+        <th>
+            <b>Title</b>
+        </th>
+        <th>
+            <b>Content</b>
+        </th>
+        <th>
+            <b>Image</b>
+        </th>
+        <th>
+            <b>Description</b>
+        </th>
+        <th>
+            <b>Edit Action</b>
+        </th>
+        <th>
+            <b>Delete Action</b>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td style="width: 400px;">
+                @Html.Raw(item.Contents)
+            </td>
+            <td>
+                <img src="/Content/RetrieveImage/@item.ID" alt="" height=100 width=150 />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a href="@Url.Action("/Edit/")@Html.DisplayFor(modelItem => item.ID)">Edit</a>
+            </td>
+            <td>
+                <a href="@Url.Action("/Delete/")@Html.DisplayFor(modelItem => item.ID)">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
